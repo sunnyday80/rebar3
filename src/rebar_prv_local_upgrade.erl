@@ -59,7 +59,7 @@ do(State) ->
                             {archive, FullArchive} = lists:keyfind(archive, 1, Escript),
                             {Rebar3Vsn, FullArchive}
                         catch
-                            C:T:S ->
+                            {C,T,S} ->
                                 ?DIAGNOSTIC("local upgrade version extraction exception: ~p:~p:~p", [C, T, S]),
                                 error(?PRV_ERROR(failed_vsn_lookup))
                         end,
